@@ -32,7 +32,7 @@
                     <label for="rawInAngle">Angle (degrees): </label>
                     <input type="number" id="rawInAngle" min="-1800" max="1800"/>
                     <button id="submitButton" type="button"
-                        onclick = "rotateAngle()">
+                        onclick = "rotateAngle(rawInAngle.value)">
                             submit
                     </button>
                     <p id="statusDeg">Degrees: -</p>
