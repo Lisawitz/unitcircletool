@@ -40,12 +40,10 @@ function rotateAngle(rawInAngle)
     if(inAngle <= 0)
     {
         id = setInterval(rotateAngleClock, 1);
-        console.log("angle is negative, therefore clockwise");
     }
     else 
     {
         id = setInterval(rotateAngleCounterClock, 1);
-        console.log("angle is positive, therefore counterclockwise");
     }
 
     angleArrow.src = "Images/arrow.png";
