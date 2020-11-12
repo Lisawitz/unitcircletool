@@ -1,2 +1,52 @@
-<h1>test</h1>
-<p>test</p>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="keywords" content="unit circle, visualizer, calculator">
+        <meta name="Unit circle visualizer" content="Unit Circle Visualizer">
+        <title>Unit Circle Tool</title>
+        <link href="UCircle.css" rel="stylesheet" type="text/css">
+    </head>
+    <header>
+        <h2>WIP Unit Circle Visualizer</h2>
+    </header>
+    <body>
+
+        <div class="row">
+            <div class="column left">
+                <div id="container">
+                    <img id="circle" class="img" src="Images/circle.png" alt="" />
+                    <canvas id="canvas" width="600" height="600">
+                        Your browser does not support HTML5 canvas.
+                    </canvas>
+                </div>
+            </div>
+
+            <div class="column right">
+                <div id="info">
+                    <label for="rawInAngle">Angle (degrees): </label>
+                    <input type="number" id="rawInAngle" min="-1800" max="1800"/>
+                    <button id="submitButton" type="button">
+                            submit
+                    </button>
+                    <p id="statusDeg">Degrees: -</p>
+                    <p id="statusRad">Radians: -</p>
+                    <p id="statusQdt"></p>
+                    <p id="statusSin"></p>
+                    <p id="statusCos"></p>
+                    <p id="statusTan"></p>
+                    <p id="statusRev"></p>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+
+    <body>
+        <h3> </h3>
+        <p> </p>
+    </body>
+    <footer>
+        <p>WIP</p>
+    </footer>
+</html>
