@@ -3,30 +3,35 @@
     <head>
         <meta charset="utf-8">
         <meta name="keywords" content="unit circle, visualizer, calculator">
-        <meta name="Unit circle visualizer" content="Unit Circle Visualizer">
-        <title>Unit Circle Tool</title>
+        <meta name="Unit circle visualizer." content="Unit Circle Visualizer">
+        <title>Unit Circle Visualizer</title>
         <link href="UCircle.css" rel="stylesheet" type="text/css">
     </head>
     <header>
-        <h2>WIP Unit Circle Visualizer</h2>
+        <h2>Unit Circle Visualizer</h2>
     </header>
-    <body>
+    <body onload="onLoad()">
+        <p>This is a crude website that shows an angle on a unit circle.</p>
+        <p>Simply input an angle and click 'submit'. Radians will be implemented soon!</p>
 
         <div class="row">
             <div class="column left">
                 <div id="container">
-                    <img id="circle" class="img" src="Images/circle.png" alt="" />
+                    <img id="baseC" class="img" src="baseC2.png" alt="" />
+                    <img id="xArrow" class="arrow" src="arrow.png" alt=""/>
+                    <img id="angleArrow" class="arrow" src="arrow.png" alt=""/>
                     <canvas id="canvas" width="600" height="600">
                         Your browser does not support HTML5 canvas.
                     </canvas>
                 </div>
             </div>
-
+            
             <div class="column right">
                 <div id="info">
                     <label for="rawInAngle">Angle (degrees): </label>
                     <input type="number" id="rawInAngle" min="-1800" max="1800"/>
-                    <button id="submitButton" type="button">
+                    <button id="submitButton" type="button"
+                        onclick = "rotateAngle()">
                             submit
                     </button>
                     <p id="statusDeg">Degrees: -</p>
@@ -47,6 +52,6 @@
         <p> </p>
     </body>
     <footer>
-        <p>WIP</p>
+        <p>This page is a work in progress. Please let me know if you find any bugs or just have suggestions. Thanks!</p>
     </footer>
 </html>
