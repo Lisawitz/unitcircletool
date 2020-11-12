@@ -26,7 +26,6 @@ function rotateAngle(rawInAngle)
     {
         return;
     }
-    console.log("inAngle is " + inAngle);
 
     // disable button(s)
     document.getElementById("submitButton").disabled = true;
