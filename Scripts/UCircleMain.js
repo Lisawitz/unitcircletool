@@ -11,11 +11,6 @@ function onLoad()
 {
     statusDeg = document.getElementById("statusDeg");
     statusRad = document.getElementById("statusRad");
-    statusSin = document.getElementById("statusSin");
-    statusCos = document.getElementById("statusCos");
-    statusTan = document.getElementById("statusTan");
-    statusRev = document.getElementById("statusRev");
-    statusQdt = document.getElementById("statusQdt");
 }
 
 function rotateAngle(rawInAngle)
@@ -23,6 +18,10 @@ function rotateAngle(rawInAngle)
     var inAngle = parseInt(rawInAngle);
 
     if(isNaN(inAngle))
+    {
+        return;
+    }
+    if(inAngle > 1800 || inAngle < -1800)
     {
         return;
     }
@@ -46,9 +45,7 @@ function rotateAngle(rawInAngle)
     }
 
     angleArrow.src = "Images/arrow.png";
-    document.getElementById("submitButton").disabled = false;
     resetStatus();
-
 
     function rotateAngleCounterClock() 
     {
@@ -57,6 +54,8 @@ function rotateAngle(rawInAngle)
             clearInterval(id);
             angleArrow.src = "Images/arrowCC.png";
             drawAngle(inAngle);
+            printFinalStatus(inAngle);
+            document.getElementById("submitButton").disabled = false;
         } 
         else 
         {
@@ -72,6 +71,8 @@ function rotateAngle(rawInAngle)
             clearInterval(id);
             angleArrow.src = "Images/arrowC.png";
             drawAngle(inAngle);
+            printFinalStatus(inAngle);
+            document.getElementById("submitButton").disabled = false;
         } 
         else 
         {
@@ -83,22 +84,6 @@ function rotateAngle(rawInAngle)
 
 }
 
-function resetStatus()
-{
-    statusSin.innerHTML = "";
-    statusCos.innerHTML = "";
-    statusTan.innerHTML = "";
-    statusRev.innerHTML = "";
-    statusQdt.innerHTML = "";
-    degrees = 0.0;
-}
-
-function updateStatus(degrees)
-{
-    statusDeg.innerHTML = "Degrees: " + degrees * -1 + "°";
-    statusRad.innerHTML = "Radians: " + (-1 * (degrees * Math.PI / 180).toFixed(3));
-}
-
 function drawAngle(inA) 
 {
     const c = document.getElementById("canvas");
@@ -106,16 +91,6 @@ function drawAngle(inA)
     ctx.strokeStyle = "blue";
     ctx.lineWidth = 4;
     ctx.beginPath();
-
-    var revolutions =  Math.abs(Math.trunc(inA / 360));
-    if(revolutions > 0)
-    {
-        statusRev.innerHTML = "Revolutions: " + revolutions;
-    }
-    else 
-    {
-        statusRev.innerHTML = "";
-    }
 
     if(inA <= 0)
     {
