@@ -35,9 +35,18 @@ function rotateAngle(rawInAngle)
 
     var elem = document.getElementById("angleArrow");
     var id;
-    if(inAngle <= 0)
+    if(inAngle < 0)
     {
         id = setInterval(rotateAngleClock, 1);
+    }
+    else if(inAngle == 0)
+    {
+        angleArrow.src = "Images/arrow.png";
+        elem.style.transform = "rotate(" + 0 + "deg)";
+        updateStatus(0);
+        printFinalStatus(0);
+        document.getElementById("submitButton").disabled = false;
+        return;
     }
     else 
     {
