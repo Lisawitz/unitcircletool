@@ -1,11 +1,6 @@
-var statusDeg;
-var statusRad;
 var statusSin;
 var statusCos;
 var statusTan;
-var degrees = 0.0;
-var radians = "";
-var quad = 1;
 
 function onLoad()
 {
@@ -50,8 +45,8 @@ function printRevolutions(inA)
 function printFinalStatus(inA)
 {
     printRevolutions(inA);
-    printQuadrant(inA);
     printTrigs(inA);
+    printQuadrant(inA);
 }
 
 function printTrigs(inA)
