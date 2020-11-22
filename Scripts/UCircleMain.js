@@ -103,7 +103,6 @@ function drawAngle(inA)
 function switchToRad()
 {
     deg = false;
-    console.log('switched to rad');
     document.getElementById("submitButtonDeg").disabled = true;
     document.getElementById("rawInAngleDeg").disabled = true;
     document.getElementById("submitButtonRad").disabled = false;
@@ -113,7 +112,6 @@ function switchToRad()
 function switchToDeg()
 {
     deg = true;
-    console.log('switched to deg');
     document.getElementById("submitButtonRad").disabled = true;
     document.getElementById("rawInAngleRad").disabled = true;
     document.getElementById("submitButtonDeg").disabled = false;
