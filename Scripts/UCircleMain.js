@@ -1,11 +1,9 @@
 var statusDeg;
 var statusRad;
-var statusSin;
-var statusCos;
-var statusTan;
 var degrees = 0.0;
 var radians = "";
 var quad = 1;
+var deg = true;
 
 function onLoad()
 {
@@ -13,21 +11,11 @@ function onLoad()
     statusRad = document.getElementById("statusRad");
 }
 
-function rotateAngle(rawInAngle)
+function rotateAngle(inAngle)
 {
-    var inAngle = parseInt(rawInAngle);
+    // disable everything
+    disableAll();
 
-    if(isNaN(inAngle))
-    {
-        return;
-    }
-    if(inAngle > 1800 || inAngle < -1800)
-    {
-        return;
-    }
-
-    // disable button(s)
-    document.getElementById("submitButton").disabled = true;
     // get canvas
     const c = document.getElementById("canvas");
     const ctx = c.getContext("2d");
@@ -45,7 +33,7 @@ function rotateAngle(rawInAngle)
         elem.style.transform = "rotate(" + 0 + "deg)";
         updateStatus(0);
         printFinalStatus(0);
-        document.getElementById("submitButton").disabled = false;
+        reenableAll();
         return;
     }
     else 
@@ -64,7 +52,7 @@ function rotateAngle(rawInAngle)
             angleArrow.src = "Images/arrowCC.png";
             drawAngle(inAngle);
             printFinalStatus(inAngle);
-            document.getElementById("submitButton").disabled = false;
+            reenableAll();
         } 
         else 
         {
@@ -110,4 +98,53 @@ function drawAngle(inA)
         ctx.arc(300, 300, 150, 0, (-1 * (inA * Math.PI) / 180) + 0.01, true);
     }
     ctx.stroke();
+}
+
+function switchToRad()
+{
+    deg = false;
+    console.log('switched to rad');
+    document.getElementById("submitButtonDeg").disabled = true;
+    document.getElementById("rawInAngleDeg").disabled = true;
+    document.getElementById("submitButtonRad").disabled = false;
+    document.getElementById("rawInAngleRad").disabled = false;
+}
+
+function switchToDeg()
+{
+    deg = true;
+    console.log('switched to deg');
+    document.getElementById("submitButtonRad").disabled = true;
+    document.getElementById("rawInAngleRad").disabled = true;
+    document.getElementById("submitButtonDeg").disabled = false;
+    document.getElementById("rawInAngleDeg").disabled = false;
+}
+
+function disableAll()
+{
+    document.getElementById("submitButtonDeg").disabled = true;
+    document.getElementById("submitButtonRad").disabled = true;
+    document.getElementById("rawInAngleDeg").disabled = true;
+    document.getElementById("rawInAngleRad").disabled = true;
+    var rad = document.radDeg.radDegChoice;
+    rad[0].disabled = true;
+    rad[1].disabled = true;
+}
+
+function reenableAll()
+{
+    if (deg)
+    {
+        document.getElementById("submitButtonDeg").disabled = false;
+        document.getElementById("rawInAngleDeg").disabled = false;
+    }
+    else 
+    {
+        document.getElementById("submitButtonRad").disabled = false;
+        document.getElementById("rawInAngleRad").disabled = false;
+    }
+
+    var rad = document.radDeg.radDegChoice;
+    rad[0].disabled = false;
+    rad[1].disabled = false;
 }
