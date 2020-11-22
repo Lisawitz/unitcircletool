@@ -69,7 +69,7 @@ function rotateAngle(inAngle)
             angleArrow.src = "Images/arrowC.png";
             drawAngle(inAngle);
             printFinalStatus(inAngle);
-            document.getElementById("submitButton").disabled = false;
+            reenableAll();
         } 
         else 
         {
