@@ -46,7 +46,7 @@ function rotateAngle(inAngle)
 
     function rotateAngleCounterClock() 
     {
-        if(degrees == inAngle * -1) 
+        if(degrees <= inAngle * -1) 
         {
             clearInterval(id);
             angleArrow.src = "Images/arrowCC.png";
@@ -63,7 +63,7 @@ function rotateAngle(inAngle)
     }
     function rotateAngleClock() 
     {
-        if(degrees == inAngle * -1) 
+        if(degrees >= inAngle * -1) 
         {
             clearInterval(id);
             angleArrow.src = "Images/arrowC.png";
