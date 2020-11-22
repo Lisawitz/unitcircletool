@@ -16,7 +16,7 @@ function getDeg(rawInAngle)
 
 function getRad(rawInAngle)
 {
-    const radiansRgx = /^-?[0-9]*(pi)?((\/)-?[0-9]+)?$/;
+    const radiansRgx = /^-?[0-9]*(pi)((\/)-?[0-9]+)?$/;
     if (!radiansRgx.test(rawInAngle))
     {
         return;
