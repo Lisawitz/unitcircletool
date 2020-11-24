@@ -45,6 +45,14 @@ footer {
     width: 40%;
 }
 
+.fleft {
+    width: 50%;
+}
+
+.fright {
+    width:50%;
+}
+
 .row:after {
     content: "";
     display: table;
@@ -83,6 +91,10 @@ a {
     -webkit-transform-origin: left center;
     -moz-transform-origin: left center;
     -o-transform-origin: left center;
+}
+
+#descrip {
+    padding:20px;
 }
 
 #container {
