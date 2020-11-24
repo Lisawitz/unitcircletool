@@ -29,7 +29,6 @@ function parseRad(rawInAngle)
 {
     var numerator = "";
     var denominator = "";
-    var negative = false;
 
     if(rawInAngle.search('/') >= 0)
     {
@@ -45,6 +44,17 @@ function parseRad(rawInAngle)
 
     var num = parseInt(numerator.replace('pi', ''));
     var den = parseInt(denominator);
+    if(isNaN(num))
+    {
+        if(numerator.search('-') >= 0)
+        {
+            num = -1;
+        }
+        else 
+        {
+            num = 1;
+        }
+    }
 
     inAngle = (num * 180) / den;
     
